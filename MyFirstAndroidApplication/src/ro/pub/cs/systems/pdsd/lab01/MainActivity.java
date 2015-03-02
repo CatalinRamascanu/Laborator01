@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import ro.pub.cs.systems.pdsd.lab01.R;
+
 
 public class MainActivity extends Activity {
 	
@@ -24,6 +26,13 @@ public class MainActivity extends Activity {
 			EditText userNameEditText = (EditText)findViewById(R.id.user_name_edit_text);
 			TextView greetingTextView = (TextView)findViewById(R.id.greeting_text_view);
 			greetingTextView.setAlpha(1);
+
+            greetingTextView.setText(greetingTextView.getText().toString().replace("xxx", "\n"+userNameEditText.getText()));
+
+            AlphaAnimation fadeEffect = new AlphaAnimation(1.0f, 0.0f);
+            fadeEffect.setDuration(TRANSPARENCY_EFFECT_DURATION);
+            fadeEffect.setFillAfter(true);
+            greetingTextView.setAnimation(fadeEffect);
 		}
 		
 	}
